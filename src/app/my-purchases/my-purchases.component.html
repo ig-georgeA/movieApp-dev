@@ -1,0 +1,39 @@
+<div class="column-layout group">
+  <h4 class="h4">
+    My Purchases
+  </h4>
+  <igx-list class="list">
+    <igx-list-item [isHeader]="false" *ngFor="let item of movieAppMyPurchases">
+      <span igxListLine>
+        <div class="row-layout group_1">
+          <div class="row-layout group_2">
+            <img [src]="item.MoviePoster" class="image" />
+            <div class="column-layout group_3">
+              <p class="igx-typography__subtitle-1 text">
+                {{ item.Name }}
+              </p>
+              <a target="_blank" class="igx-typography__body-1 hyperlink">
+                {{ item.Theatre }}
+              </a>
+            </div>
+            <div class="column-layout group_4">
+              <p class="text_1">
+                Purchased
+              </p>
+              <p class="text_2">
+                {{ item.Purchased }}
+              </p>
+            </div>
+          </div>
+          <button igxButton="raised" igxRipple class="button">
+            <igx-icon>
+              cloud_download
+            </igx-icon>
+            <span>Get Tickets</span>
+          </button>
+        </div>
+      </span>
+    </igx-list-item>
+    <igx-list-item [isHeader]="false"></igx-list-item>
+  </igx-list>
+</div>

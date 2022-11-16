@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieAppService } from '../services/movie-app.service';
+import { FinancialService } from '../services/financial.service';
+import { NorthwindService } from '../services/northwind.service';
 
 @Component({
   selector: 'app-movies',
@@ -8,6 +10,8 @@ import { MovieAppService } from '../services/movie-app.service';
 })
 export class MoviesComponent implements OnInit {
   public movieAppNowPlaying: any = null;
+  public financialBoxOfficeRevenue: any = null;
+  public northwindEmployees: any = null;
   public movieAppMovieList: any = null;
   public movieAppTheatres: any = null;
   public movieAppShowtimes: any = null;
@@ -15,6 +19,8 @@ export class MoviesComponent implements OnInit {
 
   constructor(
     private movieAppService: MovieAppService,
+    private financialService: FinancialService,
+    private northwindService: NorthwindService,
   ) {}
 
   ngOnInit() {
@@ -24,5 +30,7 @@ export class MoviesComponent implements OnInit {
     this.movieAppService.getTheatres().subscribe(data => this.movieAppTheatres = data);
     this.movieAppService.getShowtimes().subscribe(data => this.movieAppShowtimes = data);
     this.movieAppService.getTheatresNearYou().subscribe(data => this.movieAppTheatresNearYou = data);
+    this.financialService.getData('BoxOfficeRevenue').subscribe(data => this.financialBoxOfficeRevenue = data);
+    this.northwindService.getData('Employees').subscribe(data => this.northwindEmployees = data);
   }
 }

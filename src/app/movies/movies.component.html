@@ -16,6 +16,9 @@
   </div>
   <igx-tabs [disableAnimation]="true" class="tabs">
     <igx-tab-item [selected]="true" class="tab-item">
+      <igx-tab-header>
+        <span igxTabHeaderLabel>Now Playing</span>
+      </igx-tab-header>
       <igx-tab-content class="row-layout tab-item-content">
         <div class="row-layout group_4">
           <igx-card *ngFor="let item of movieAppNowPlaying" class="card">
@@ -58,35 +61,39 @@
           </igx-card>
         </div>
       </igx-tab-content>
-      <igx-tab-header>
-        <span igxTabHeaderLabel>Now Playing</span>
-      </igx-tab-header>
     </igx-tab-item>
     <igx-tab-item class="tab-item">
-      <igx-tab-content class="row-layout tab-item-content">
-        <div class="row-layout demo-content">
-          <img src="/assets/start-building-dark.svg" class="image_1" />
-          <p class="igx-typography__body-2 text_1">
-            Remove the "demo-content" container, and add your own content.
-          </p>
-        </div>
-      </igx-tab-content>
       <igx-tab-header>
         <span igxTabHeaderLabel>Opening this week</span>
       </igx-tab-header>
+      <igx-tab-content class="row-layout tab-item-content">
+        <igx-category-chart [dataSource]="financialBoxOfficeRevenue" computedPlotAreaMarginMode="series" class="category-chart"></igx-category-chart>
+      </igx-tab-content>
     </igx-tab-item>
     <igx-tab-item class="tab-item">
-      <igx-tab-content class="row-layout tab-item-content">
-        <div class="row-layout demo-content">
-          <img src="/assets/start-building-dark.svg" class="image_1" />
-          <p class="igx-typography__body-2 text_1">
-            Remove the "demo-content" container, and add your own content.
-          </p>
-        </div>
-      </igx-tab-content>
       <igx-tab-header>
         <span igxTabHeaderLabel>Coming soon</span>
       </igx-tab-header>
+      <igx-tab-content class="column-layout tab-item-content">
+        <igx-grid [data]="northwindEmployees" primaryKey="employeeID" displayDensity="cosy" [allowFiltering]="true" filterMode="excelStyleFilter" class="grid">
+          <igx-column field="lastName" dataType="string" header="lastName" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="employeeID" dataType="number" header="employeeID" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="firstName" dataType="string" header="firstName" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="title" dataType="string" header="title" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="titleOfCourtesy" dataType="string" header="titleOfCourtesy" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="birthDate" dataType="date" header="birthDate" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="hireDate" dataType="date" header="hireDate" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="address.street" dataType="string" header="street" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="address.city" dataType="string" header="city" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="address.region" dataType="string" header="region" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="address.postalCode" dataType="string" header="postalCode" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="address.country" dataType="string" header="country" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="address.phone" dataType="string" header="phone" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="managerID" dataType="number" header="managerID" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="notes" dataType="string" header="notes" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="avatarUrl" dataType="string" header="avatarUrl" [sortable]="true" [selectable]="false"></igx-column>
+        </igx-grid>
+      </igx-tab-content>
     </igx-tab-item>
   </igx-tabs>
 </div>
@@ -136,7 +143,7 @@
     </button>
   </div>
   <div class="column-layout theatres-near-you">
-    <p class="igx-typography__subtitle-2 text_2">
+    <p class="igx-typography__subtitle-2 text_1">
       THEATRES NEAR YOU
     </p>
     <igx-list class="list">
